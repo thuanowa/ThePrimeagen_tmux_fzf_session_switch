@@ -6,7 +6,7 @@ function main {
 	if [[ $# -eq 1 ]]; then
 		selected=$1
 	else
-		selected=$(fd . ~/repos/ --min-depth 1 --max-depth 2 --type directory | fzf)
+		selected=$(fd . ~/repos/thuanowa ~/repos/OngDev/ ~/repos/legrandfr/ ~/repos/legrandfr/ ~/ --min-depth 1 --max-depth 1 --type directory | fzf)
 	fi
 	if [[ -z $selected ]]; then
 		exit 0
