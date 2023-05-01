@@ -11,7 +11,6 @@ tmux_option_goto="@fzf-goto-session"
 tmux_option_goto_without_prefix="@fzf-goto-session-without-prefix"
 tmux_option_width="@fzf-goto-win-width"
 tmux_option_height="@fzf-goto-win-height"
-tmux_option_search_session_only="@fzf-goto-session-only"
 
 get_tmux_option() {
 	local option=$1
@@ -33,12 +32,12 @@ function set_goto_session_bindings {
 	if [ "$without_prefix" = true ]; then
 		local key
 		for key in $key_bindings; do
-			tmux bind -n "$key" display-popup -w "$width" -h "$height" -y 15 -E "$CURRENT_DIR/scripts/switch_session_window.sh"
+			tmux bind -n "$key" display-popup -w "$width" -h "$height" -y 15 -E "$CURRENT_DIR/scripts/switch_session.sh"
 		done
 	else
 		local key
 		for key in $key_bindings; do
-			tmux bind "$key" display-popup -w "$width" -h "$height" -y 15 -E "$CURRENT_DIR/scripts/switch_session_window.sh"
+			tmux bind "$key" display-popup -w "$width" -h "$height" -y 15 -E "$CURRENT_DIR/scripts/switch_session.sh"
 		done
 	fi
 }
